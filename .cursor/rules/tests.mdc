@@ -1,0 +1,14 @@
+---
+description: Automated testing: delegate authoring to subagents, review tests critically before merge
+alwaysApply: true
+---
+
+# Tests
+
+Cutlass treats tests as **production code**: write them deliberately and review them with the same skepticism as feature code.
+
+
+
+## Critical review
+
+After tests land, **review them critically**: gaps (missing edge cases, flaky assumptions, weak assertions), redundancy, unclear failure messages, and mismatches with real behavior or requirements. Reject “coverage theater”; fix or rewrite weak tests instead of merging them unchecked.

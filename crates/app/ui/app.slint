@@ -1,0 +1,29 @@
+export component AppWindow inherits Window {
+    title: "avio-tests";
+    preferred-width: 1280px;
+    preferred-height: 720px;
+    background: #0a0a0c;
+
+    in property <image> video-texture <=> video.source;
+    in property <string> status: "warming up";
+    out property <length> video-width: video.width;
+    out property <length> video-height: video.height;
+
+    VerticalLayout {
+        padding: 16px;
+        spacing: 8px;
+
+        Text {
+            text: status;
+            color: #cccccc;
+            horizontal-alignment: center;
+        }
+
+        video := Image {
+            width: 100%;
+            min-width: 64px;
+            min-height: 64px;
+            image-fit: contain;
+        }
+    }
+}

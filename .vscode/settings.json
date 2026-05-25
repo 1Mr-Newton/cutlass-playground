@@ -1,0 +1,4 @@
+// disable inlay hints
+{
+  "editor.inlayHints.enabled": "off"
+}

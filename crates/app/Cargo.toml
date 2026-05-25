@@ -1,0 +1,18 @@
+[package]
+name = "app"
+edition.workspace = true
+version.workspace = true
+publish.workspace = true
+build = "build.rs"
+
+[[bin]]
+name = "avio-tests"
+path = "src/main.rs"
+
+[dependencies]
+slint = { workspace = true }
+compositor = { workspace = true }
+decoder = { workspace = true }
+
+[build-dependencies]
+slint-build = { workspace = true }

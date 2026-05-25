@@ -1,0 +1,62 @@
+[workspace]
+resolver = "3"
+members = ["crates/app", "crates/compositor", "crates/decoder"]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+publish = false
+
+[workspace.dependencies]
+slint = { version = "1.16", default-features = false, features = [
+    "std",
+    "compat-1-2",
+    "unstable-winit-030",
+    "unstable-wgpu-28",
+    "renderer-femtovg-wgpu",
+] }
+slint-build = "1.16"
+bytemuck = { version = "1.18", features = ["derive"] }
+ffmpeg-next = { version = "8.1", default-features = false, features = [
+    "codec",
+    "format",
+    "software-scaling",
+] }
+thiserror = "2.0"
+
+# Apple-only zero-copy decode/composite stack (IOSurface ↔ MTLTexture ↔ wgpu).
+objc2 = "0.6"
+objc2-core-video = { version = "0.3", default-features = false, features = [
+    "std",
+    "CVBase",
+    "CVBuffer",
+    "CVImageBuffer",
+    "CVPixelBuffer",
+    "CVPixelBufferIOSurface",
+    "CVReturn",
+    "objc2-io-surface",
+] }
+objc2-io-surface = { version = "0.3", default-features = false, features = [
+    "std",
+    "IOSurface",
+    "IOSurfaceBase",
+    "IOSurfaceRef",
+    "objc2",
+    "objc2-core-foundation",
+] }
+objc2-metal = { version = "0.3", default-features = false, features = [
+    "std",
+    "MTLAllocation",
+    "MTLDevice",
+    "MTLPixelFormat",
+    "MTLResource",
+    "MTLTexture",
+    "objc2-io-surface",
+] }
+objc2-foundation = { version = "0.3", default-features = false, features = [
+    "std",
+] }
+metal = "0.33"
+
+compositor = { path = "crates/compositor" }
+decoder = { path = "crates/decoder" }

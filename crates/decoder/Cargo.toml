@@ -1,0 +1,21 @@
+[package]
+name = "decoder"
+edition.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+slint = { workspace = true }
+ffmpeg-next = { workspace = true }
+thiserror = { workspace = true }
+
+[target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
+metal = { workspace = true }
+objc2 = { workspace = true }
+objc2-core-video = { workspace = true }
+objc2-io-surface = { workspace = true }
+objc2-metal = { workspace = true }
+objc2-foundation = { workspace = true }

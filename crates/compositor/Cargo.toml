@@ -1,0 +1,12 @@
+[package]
+name = "compositor"
+edition.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+slint = { workspace = true }
+bytemuck = { workspace = true }
