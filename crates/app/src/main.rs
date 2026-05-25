@@ -39,7 +39,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     app.window().set_rendering_notifier({
         let video_path = video_path.clone();
-        move |rs, graphics_api| match rs {
+        move |render_state, graphics_api| match render_state {
             RenderingState::RenderingSetup => {
                 if let GraphicsAPI::WGPU28 { device, queue, .. } = graphics_api {
                     match RuntimeState::initialize(device, queue, &video_path) {

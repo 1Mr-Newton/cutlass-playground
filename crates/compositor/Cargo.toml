@@ -9,4 +9,3 @@ path = "src/lib.rs"
 
 [dependencies]
 slint = { workspace = true }
-bytemuck = { workspace = true }
